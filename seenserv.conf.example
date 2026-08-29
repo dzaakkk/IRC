@@ -1,0 +1,35 @@
+# seenserv.conf - configuration for SeenServ v2
+# Copy to seenserv.conf and edit the values below.
+
+# ---- Uplink (your ircd-ratbox server) ----
+uplink_host      = 127.0.0.1
+uplink_port      = 6900
+link_password    = ChangeThisLinkPassword
+
+# ---- This service's identity on the network ----
+# server_name/server_sid must match a connect{}/service{} block in ircd.conf
+server_name      = services.yournetwork.bg
+server_sid       = 00S
+server_desc      = SeenServ Services
+
+service_nick     = SeenServ
+service_user     = seenserv
+service_host     = services.yournetwork.bg
+service_gecos    = Seen Service
+
+# ---- Channels to sit in and monitor (comma-separated, optional) ----
+# These are inserted into the `chans` table on first run only; after that,
+# channel membership is managed dynamically via /msg SeenServ JOIN/PART
+# (IRC-oper only) and persists across restarts on its own.
+channels         = #OPERWALL
+
+# ---- MySQL ----
+db_host          = 127.0.0.1
+db_port          = 3306
+db_name          = seenserv
+db_user          = seenserv
+db_pass          = ChangeThisDbPassword
+
+# ---- Misc ----
+reconnect_delay  = 15
+debug            = no
